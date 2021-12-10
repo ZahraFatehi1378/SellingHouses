@@ -15,18 +15,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sellinghouses.R
 import com.example.sellinghouses.ui.theme.SellingHousesTheme
-import com.example.softwareproject.screens.model.House
 
 @Composable
-fun HouseItem(house: House
+fun ImageCard(
+    //  painter: Painter,
+    title: String,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth()
@@ -70,7 +73,7 @@ fun HouseItem(house: House
                 ) {
                     Column {
                         Text(
-                            text = "1223$",
+                            text = title,
                             color = MaterialTheme.colors.secondary,
                             fontWeight = FontWeight.Bold,
                             fontSize = 20.sp
@@ -104,8 +107,7 @@ fun HouseItem(house: House
                     .background(MaterialTheme.colors.primary)
                     .padding(6.dp),
 
-                horizontalAlignment = Alignment.Start,
-                verticalArrangement = Arrangement.Top
+                horizontalAlignment = Alignment.Start
             ) {
                 Text(
                     text = "kdflnlkfds",
@@ -123,19 +125,21 @@ fun HouseItem(house: House
     }
 }
 
-
+@Preview
 @Composable
-@Preview(showBackground = false)
-fun previewH() {
-    SellingHousesTheme(darkTheme = false) {
-        HouseItem(
-            House(
-                "",
-                seller = "zahra",
-                address = "123",
-                information = "123567dskfnklsnlkfsdn sjk;gng;kndfsg ;klfgndkln vkms avklnvmlmsflmsdf;lsm;"
-            )
-        )
+fun ImageCardData() {
+    SellingHousesTheme(darkTheme = true) {
 
+        val title = "Sample Text Title"
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            ImageCard(
+                //    painter = painter,
+                title = title,
+            )
+        }
     }
 }

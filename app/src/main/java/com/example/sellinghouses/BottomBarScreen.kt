@@ -13,7 +13,7 @@ sealed class BottomBarScreen (
 ){
     object Home :BottomBarScreen(
         route = "Home",
-        icon = Icons.Default.Home
+        icon = Icons.Default.Home,
     )
     object Profile :BottomBarScreen(
         route = "Profile",

@@ -39,8 +39,17 @@ fun MainScreen() {
 //        },
 
         bottomBar = { BottomBar(navHostController = navController) }
-    ) {innerPadding->
-        Box(modifier = Modifier.padding(PaddingValues(start = 0.dp , top = 0.dp , end = 0.dp , bottom =innerPadding.calculateBottomPadding()))) {
+    ) { innerPadding ->
+        Box(
+            modifier = Modifier.padding(
+                PaddingValues(
+                    start = 0.dp,
+                    top = 0.dp,
+                    end = 0.dp,
+                    bottom = innerPadding.calculateBottomPadding()
+                )
+            )
+        ) {
             BottomNavGraph(navHostController = navController)
         }
     }
@@ -82,8 +91,11 @@ fun RowScope.addItem(
         icon = {
             Icon(
                 imageVector = screen.icon,
-                contentDescription = "navigation icon"
+                contentDescription = "navigation icon",
+                tint = MaterialTheme.colors.secondary
+
             )
+
         },
         selected = currentDestination?.hierarchy?.any {
             it.route == screen.route

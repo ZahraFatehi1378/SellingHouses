@@ -81,11 +81,7 @@ fun HousesListScreen() {
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            LazyColumn(
-                //    contentPadding = PaddingValues(all = 10.dp),
-                Modifier.background(MaterialTheme.colors.secondary),
-                verticalArrangement = Arrangement.spacedBy(1.dp)
-            ) {
+            LazyColumn {
                 items(items = list) { house ->
                     HouseItem(house = house)
 
