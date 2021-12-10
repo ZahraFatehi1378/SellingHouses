@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sellinghouses.screens.HousesListScreen
+import com.example.sellinghouses.screens.MainScreen
 import com.example.sellinghouses.ui.theme.SellingHousesTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
             SellingHousesTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                        HousesListScreen()
+                    MainScreen()
                 }
             }
         }
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun preview() {
     SellingHousesTheme (darkTheme = true){
-            HousesListScreen()
+        MainScreen()
     }
 }
 

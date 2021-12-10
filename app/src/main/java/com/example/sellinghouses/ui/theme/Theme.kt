@@ -9,13 +9,17 @@ import androidx.compose.runtime.Composable
 private val DarkColorPalette = darkColors(
     primary = firstBright,
     primaryVariant = secondBright,
-    secondary = thirdBright
-)
+    secondary = thirdBright,
+    surface = firstDark,
+
+    )
 
 private val LightColorPalette = lightColors(
     primary = firstDark,
     primaryVariant = secondDark,
-    secondary = thirdBright
+    secondary = thirdBright,
+    surface = firstBright,
+
 
     /* Other default colors to override
     background = Color.White,
@@ -30,7 +34,7 @@ private val LightColorPalette = lightColors(
 @Composable
 fun SellingHousesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
         DarkColorPalette

@@ -57,11 +57,25 @@ fun HousesListScreen() {
             address = "123",
             information = "123567dskfnklsnlkfsdn sjk;gng;kndfsg ;klfgndkln vkms avklnvmlmsflmsdf;lsm;"
         )
+        ,
+        House(
+            "",
+            seller = "zahra",
+            address = "123",
+            information = "123567dskfnklsnlkfsdn sjk;gng;kndfsg ;klfgndkln vkms avklnvmlmsflmsdf;lsm;"
+        ),
+        House(
+            "",
+            seller = "zahra",
+            address = "123",
+            information = "123567dskfnklsnlkfsdn sjk;gng;kndfsg ;klfgndkln vkms avklnvmlmsflmsdf;lsm;"
+        )
     )
     Column(
         Modifier
             .background(MaterialTheme.colors.primary)
             .padding(15.dp)
+
     ) {
         Surface(
             modifier = Modifier
