@@ -97,7 +97,7 @@ fun AddHousesScreen() {
                     }
                     Spacer(modifier = Modifier.width(16.dp))
 
-                    FilteringItem(MaterialTheme.colors.primary, MaterialTheme.colors.onPrimary , MaterialTheme.colors.secondary , false)
+                    FilteringItem(MaterialTheme.colors.primary, buttonColor = MaterialTheme.colors.primaryVariant , MaterialTheme.colors.secondary , false)
                 }
                 Spacer(modifier = Modifier.height(16.dp))
 

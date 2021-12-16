@@ -22,41 +22,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.sellinghouses.ui.theme.SellingHousesTheme
 
+
+
 @Composable
 fun FilteringItem(
     backColor: Color,
     buttonColor: Color,
-    textColor: Color ,
-    isRentall :Boolean
-) {
-
-
-    Card(
-        modifier = Modifier
-            .fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
-
-        ) {
-        Column(
-            modifier = Modifier
-                .background(backColor)
-                .padding(6.dp)
-        ) {
-            val animationTargetState = remember { mutableStateOf(if (isRentall) 0f else 1000f) }
-            var isRental = remember { mutableStateOf(isRentall)}
-            DrawRec(buttonColor, textColor = textColor, animationTargetState , isRental)
-        }
-
-    }
-}
-
-@Composable
-fun DrawRec(
-    buttonColor: Color,
     textColor: Color,
-    animationTargetState: MutableState<Float>,
-    isRental: MutableState<Boolean>,
-) {
+    isRentall: Boolean,
+
+    ) {
+    val animationTargetState = remember { mutableStateOf(if (isRentall) 0f else 1000f) }
+
+    var isRental = remember { mutableStateOf(isRentall) }
     val animatedFloatState = animateFloatAsState(
         // Whenever the target value changes, new animation
         // will start to the new target value
@@ -65,8 +43,17 @@ fun DrawRec(
     )
     Canvas(
         modifier = Modifier
-            .height(44.dp)
+            .height(56.dp)
             .fillMaxWidth()
+//            .clickable (
+//                onClick= {
+//                    animationTargetState.value = if (isRental.value) 1000f else 0f
+//                    isRental.value = if (isRental.value) false else true
+//                },
+//                indication = rememberRipple(color = Color.Transparent),
+//                interactionSource =  remember { MutableInteractionSource() },
+//
+//                )
             .clickable {
                 // Change the target state to start the animation
                 animationTargetState.value = if (isRental.value) 1000f else 0f
@@ -74,17 +61,31 @@ fun DrawRec(
             },
 
         onDraw = {
-
+            drawRoundRect(
+                color = backColor,
+                size = Size(
+                    width = size.width,
+                    height = size.height
+                ),
+                topLeft = Offset(
+                    x = 0.dp.toPx(),
+                    y = 0.dp.toPx()
+                ),
+                cornerRadius = CornerRadius(
+                    x = 20.dp.toPx(),
+                    y = 20.dp.toPx()
+                )
+            )
 
             drawRoundRect(
                 color = buttonColor,
                 size = Size(
-                    width = (size.width / 2),
-                    height = (size.height)
+                    width = (size.width / 2) - (2*size.height/10),
+                    height = (8*size.height/10)
                 ),
                 topLeft = Offset(
-                    x = size.width * animatedFloatState.value / 2000,
-                    y = 0.dp.toPx()
+                    x = (size.width * animatedFloatState.value / 2000 )+2*size.height/20,
+                    y = 0.dp.toPx()+2*size.height/20
                 ),
                 cornerRadius = CornerRadius(
                     x = 18.dp.toPx(),
@@ -93,7 +94,7 @@ fun DrawRec(
             )
 
             val paint = Paint()
-            val textSize = size.height / 3
+            val textSize = size.height / 4
             paint.textAlign = Paint.Align.CENTER
             paint.textSize = textSize
             paint.color = textColor.toArgb()
@@ -117,7 +118,7 @@ fun FilteringItems() {
             MaterialTheme.colors.primary,
             MaterialTheme.colors.primaryVariant,
             MaterialTheme.colors.secondary,
-            false
+            true
         )
 
     }
