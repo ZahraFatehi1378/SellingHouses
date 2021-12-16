@@ -1,23 +1,19 @@
-package com.example.sellinghouses.screens
+package com.example.sellinghouses.screens.navigation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.PopUpToBuilder
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.sellinghouses.BottomBarScreen
-import com.example.sellinghouses.screens.navigation.BottomNavGraph
-import com.example.sellinghouses.ui.theme.SellingHousesTheme
 
 @Composable
 fun MainScreen() {
@@ -74,7 +70,6 @@ fun BottomBar(navHostController: NavHostController) {
                 screen = screen,
                 currentDestination = currentDestination,
                 navHostController = navHostController,
-
                 )
         }
     }
@@ -90,17 +85,18 @@ fun RowScope.addItem(
     BottomNavigationItem(
         icon = {
             Icon(
-                imageVector = screen.icon,
+                painter = painterResource(id = screen.icon),
                 contentDescription = "navigation icon",
-                tint = MaterialTheme.colors.secondary
-
+                //  tint = MaterialTheme.colors.secondary
+            Modifier.size(20.dp)
             )
 
         },
         selected = currentDestination?.hierarchy?.any {
             it.route == screen.route
         } == true,
-        unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
+        unselectedContentColor = MaterialTheme.colors.secondaryVariant,
+        selectedContentColor = MaterialTheme.colors.secondary,
         onClick = {
             navHostController.navigate(screen.route) {
                 popUpTo(navHostController.graph.findStartDestination().id)

@@ -26,20 +26,22 @@ import com.example.sellinghouses.ui.theme.SellingHousesTheme
 import com.example.softwareproject.screens.model.House
 
 @Composable
-fun HouseItem(house: House
+fun HouseItem(
+    house: House
 ) {
     Card(
-        modifier = Modifier.fillMaxWidth()
-            .background(MaterialTheme.colors.primary)
-        ,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colors.primary),
         shape = RoundedCornerShape(20.dp),
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth()
-                .background(MaterialTheme.colors.primary)
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colors.primaryVariant),
+            verticalArrangement = Arrangement.Center
         )
         {
-
             Box(
                 modifier = Modifier.height(200.dp)
             ) {
@@ -56,7 +58,7 @@ fun HouseItem(house: House
                             brush = Brush.verticalGradient(
                                 colors = listOf(
                                     Color.Transparent,
-                                    MaterialTheme.colors.primary
+                                    MaterialTheme.colors.primaryVariant
                                 ),
                                 startY = 50f
                             )
@@ -65,60 +67,52 @@ fun HouseItem(house: House
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(6.dp),
+                        ,
                     contentAlignment = Alignment.BottomStart
                 ) {
-                    Column {
-                        Text(
-                            text = "1223$",
-                            color = MaterialTheme.colors.secondary,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp
-                        )
-                        Row(
-                            horizontalArrangement = Arrangement.Center
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Person,
-                                contentDescription = "icon",
-                                tint = MaterialTheme.colors.secondary
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(40.dp)
+                            .padding(start = 12.dp),
+                        verticalAlignment = Alignment.Bottom,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column {
                             Text(
-                                text = "3",
+                                text = "$1223",
                                 color = MaterialTheme.colors.secondary,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp
+                                fontSize = 16.sp
                             )
 
+                            Text(
+                                text = "1 BED | 1 Baths | 53 sqft",
+                                color = MaterialTheme.colors.secondary,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 12.sp
+                            )
                         }
 
-
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_heart),
+                            contentDescription = "icon",
+                            tint = Color.Gray,
+                            modifier = Modifier
+                                .padding(end = 10.dp , bottom = 5.dp , top = 5.dp)
+                        )
                     }
 
                 }
             }
+            Text(
+                text = "germany,Topaz residences",
+                color = MaterialTheme.colors.secondary,
+                fontSize = 12.sp,
+                modifier = Modifier.padding(start = 12.dp , bottom = 12.dp),
+                fontWeight = FontWeight.Bold,
 
-            Column(
-                modifier = Modifier
-                    .background(MaterialTheme.colors.primary)
-                    .padding(6.dp),
-
-                horizontalAlignment = Alignment.Start,
-                verticalArrangement = Arrangement.Top
-            ) {
-                Text(
-                    text = "kdflnlkfds",
-                    color = MaterialTheme.colors.secondary,
-                    fontSize = 16.sp
-                )
-
-                Text(
-                    text = "house.information",
-                    color = MaterialTheme.colors.secondary,
-                    fontSize = 16.sp
-                )
-            }
+            )
         }
     }
 }

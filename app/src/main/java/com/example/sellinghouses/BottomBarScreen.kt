@@ -1,27 +1,24 @@
 package com.example.sellinghouses
 
-import android.graphics.drawable.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class BottomBarScreen (
-    val route : String,
-    val icon : ImageVector
+sealed class BottomBarScreen(
+    val route: String,
+    val icon: Int
 ){
     object Home :BottomBarScreen(
         route = "Home",
-        icon = Icons.Default.Home,
+        icon = R.drawable.ic_home,
     )
     object Profile :BottomBarScreen(
         route = "Profile",
-        icon = Icons.Default.Person
+        icon = R.drawable.ic_heart
     )
     object AddHouse :BottomBarScreen(
         route = "AddHouse",
-        icon = Icons.Default.Add
+        icon = R.drawable.ic_add
     )
 }
 
