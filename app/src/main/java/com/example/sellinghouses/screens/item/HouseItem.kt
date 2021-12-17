@@ -127,7 +127,8 @@ fun previewH() {
                 "",
                 seller = "zahra",
                 address = "123",
-                information = "123567dskfnklsnlkfsdn sjk;gng;kndfsg ;klfgndkln vkms avklnvmlmsflmsdf;lsm;"
+                information = "123567dskfnklsnlkfsdn sjk;gng;kndfsg ;klfgndkln vkms avklnvmlmsflmsdf;lsm;",
+                isRental = false
             )
         )
 

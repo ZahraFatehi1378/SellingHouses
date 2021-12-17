@@ -32,7 +32,7 @@ fun FilteringItem(
     isRentall: Boolean,
 
     ) {
-    val animationTargetState = remember { mutableStateOf(if (isRentall) 0f else 1000f) }
+    val animationTargetState = remember { mutableStateOf(if (isRentall) 1000f else 0f) }
 
     var isRental = remember { mutableStateOf(isRentall) }
     val animatedFloatState = animateFloatAsState(
@@ -56,7 +56,7 @@ fun FilteringItem(
 //                )
             .clickable {
                 // Change the target state to start the animation
-                animationTargetState.value = if (isRental.value) 1000f else 0f
+                animationTargetState.value = if (isRental.value) 0f else 1000f
                 isRental.value = if (isRental.value) false else true
             },
 

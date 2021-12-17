@@ -12,6 +12,7 @@ private val DarkColorPalette = darkColors(
     primaryVariant = Dark,
     secondary = firstBright,
     secondaryVariant = transparentBright,
+    //onError =
     background =firstDark,
     surface =firstDark // spacers colors in lazy colomn
 )
@@ -20,8 +21,8 @@ private val LightColorPalette = lightColors(
     primary = firstBright,
     primaryVariant = Color.White,
     secondary = Dark,
+    //onError =
     secondaryVariant = transparentDark,
-
     background =firstBright,
     surface =firstBright
 )
